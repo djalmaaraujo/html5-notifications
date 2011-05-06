@@ -2,7 +2,7 @@
  * HTML5 Notifications
  * - dependencies: jQuery only if you want to use callForPermission() and checkForPermission() methods.
  * @djalmaaraujo
- *
+ * @wilkerlucio
  */ 
 var Notifications = {
 	apiAvailable: function() {

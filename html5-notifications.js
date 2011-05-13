@@ -43,7 +43,10 @@ var Notifications = {
 				popup.cancel();
 			}, 5000);
 		} else {
-			this.authorize(function() { console.log(arguments); self.show(url, title, body); });
+			this.authorize(function() { 
+				//console.log(arguments); 
+				self.show(url, title, body); 
+			});
 		}
 	},
 	
@@ -52,11 +55,16 @@ var Notifications = {
 	},
 	
 	callForPermission: function() {
-		var html = '';
-		html += '<div class="notifications-authorize">';
-		html += ' <p>Seu navegador possui suporte a notificações para o chat do sistema. Para solicitar uma permissão de notificação, clique no botão abaixo. Aperte "ALLOW" ou "PERMITIR" para a janela de notificação que irá aparecer. <br /><br /> <input type="button" onclick="javascript:$(\'.notifications-authorize\').remove(); Notifications.authorize();" class="button button-green" value="Ativar notificações" />';
-		html += '</div>';
-		$('body').append(html);
+		
+		var authorizeBox = jQuery('<div />').addClass('notifications-authorize')
+											.html('<p>Seu navegador possui suporte a notificações. Para solicitar uma permissão de notificação, clique no botão abaixo. Aperte "ALLOW" ou "PERMITIR" para a janela de notificação que irá aparecer. <input type="button" value="Ativar notificações" /></p>')
+										
+		jQuery('body').append(authorizeBox);
+		
+		jQuery('div.notifications-authorize input').click(function(){
+			jQuery(this).remove(); 
+			Notifications.authorize();
+		});
 	}
 };
 

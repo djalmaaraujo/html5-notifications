@@ -8,8 +8,8 @@
 $ = jQuery
 
 class @Notifications
-  constructor: (authorize) ->
-    @checkForPermission() if authorize
+  constructor: (@authorize) ->
+    @checkForPermission() if @authorize
 
   isAuthorized: ->
     return false unless @apiAvailable()

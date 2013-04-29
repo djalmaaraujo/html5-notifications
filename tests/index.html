@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 Notifications</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="../html5-notifications.js"></script>
+	<script>
+	$(function () {
+		var HTML5Notifications = new Notifications(true);
+
+		console.log(HTML5Notifications);
+
+		HTML5Notifications.show('http://secure.gravatar.com/avatar/32412517c175d73028c6d2a6ff5b5731?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png', 'Ola!', 'Esta é a mensagem');
+	});
+	</script>
+</body>
+</html>
